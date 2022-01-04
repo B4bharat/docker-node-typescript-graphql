@@ -1,0 +1,5 @@
+{
+  "settings": {
+    "typescript.tsdk": "docker-node-typescript/node_modules/typescript/lib"
+  }
+}
