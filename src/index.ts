@@ -3,7 +3,7 @@ import Fastify from 'fastify';
 const fastify = Fastify({ logger: true });
 
 fastify.get('/', async () => {
-  return { hello: 'docker world 2' };
+  return { hello: 'docker postgres restart' };
 });
 
 const port = process.env.PORT || 8080;

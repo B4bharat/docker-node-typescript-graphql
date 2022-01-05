@@ -1,6 +1,17 @@
 services:
+  postgres:
+    image: postgres:11-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: webapp_dev
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+
   web:
     build: .
+    depends_on:
+      - postgres
     ports:
       - 5000:5000
       - 9229:9229
@@ -9,4 +20,5 @@ services:
       - /usr/src/app/node_modules
     command: yarn dev
     environment:
-      - PORT=5000
+      DATABASE_URL: postgres://postgres:@postgres:5432/webapp_dev
+      PORT: 5000
