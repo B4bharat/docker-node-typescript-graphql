@@ -3,7 +3,7 @@ import Fastify from 'fastify';
 const fastify = Fastify({ logger: true });
 
 fastify.get('/', async () => {
-  return { hello: 'world' };
+  return { hello: 'docker world 2' };
 });
 
 const port = process.env.PORT || 8080;

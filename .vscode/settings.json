@@ -1,5 +1,11 @@
 {
-  "settings": {
-    "typescript.tsdk": "docker-node-typescript/node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "triggerTaskOnSave.tasks": {
+    "restart web": ["src/**/*"]
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true
   }
 }
