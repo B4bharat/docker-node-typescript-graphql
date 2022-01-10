@@ -1,12 +1,12 @@
 FROM node:16.13.1-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/ts-graphql
 
-COPY package.json ./
-COPY yarn.lock ./
+COPY ./package.json /usr/src/app/ts-graphql
+COPY ./yarn.lock /usr/src/app/ts-graphql
 RUN yarn install
 
-COPY . .
+COPY . /usr/src/app/ts-graphql
 
 RUN yarn build
 
