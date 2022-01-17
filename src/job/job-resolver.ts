@@ -1,7 +1,7 @@
-import { Resolver, Query, Arg } from 'type-graphql';
+import { Resolver, Query, Arg, Mutation } from 'type-graphql';
 
 import { Job } from './job-type';
-// import { JobInput } from './job-input';
+import { JobInput } from './job-input';
 import { createJobSamples } from './job-sample';
 
 @Resolver((of) => Job)
@@ -18,5 +18,24 @@ export class JobResolver {
   })
   async allJobs(): Promise<Job[]> {
     return await this.jobs;
+  }
+
+  @Mutation((returns) => Job)
+  async addJob(@Arg('jobDetail') jobInput: JobInput): Promise<Job> {
+    const jobDetail = Object.assign(new Job(), {
+      description: jobInput.description,
+      title: jobInput.title,
+      wfh: jobInput.wfh,
+      salary: jobInput.salary,
+      location: jobInput.location,
+      company: jobInput.company,
+      openPositions: jobInput.openPositions,
+      minAge: jobInput.minAge,
+      maxAge: jobInput.maxAge,
+      menAccomodation: jobInput.menAccomodation,
+      womenAccomodation: jobInput.womenAccomodation,
+    });
+    await this.jobs.push(jobDetail);
+    return jobDetail;
   }
 }

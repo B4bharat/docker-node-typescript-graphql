@@ -2,7 +2,7 @@ import { Job } from './job-type';
 import { InputType, Field } from 'type-graphql';
 
 @InputType()
-export class RecipeInput implements Partial<Job> {
+export class JobInput implements Partial<Job> {
   @Field()
   title?: string;
 
