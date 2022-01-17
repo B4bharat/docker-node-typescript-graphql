@@ -33,10 +33,6 @@ const books = [
     title: 'The Great Gatsby',
     author: 'John Haddon',
   },
-  {
-    title: 'The Sound and the Fury',
-    author: 'John Haddon 2',
-  },
 ];
 
 // Resolvers define the technique for fetching the types defined in the
