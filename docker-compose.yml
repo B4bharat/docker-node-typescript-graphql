@@ -16,8 +16,8 @@ services:
       - 5000:5000
       - 9229:9229
     volumes:
-      - .:/usr/src/app/ts-graphql
-      - /usr/src/app/ts-graphql/node_modules
+      - .:/usr/src/app/ts-graphql-dynamodb
+      - /usr/src/app/ts-graphql-dynamodb/node_modules
     command: yarn dev
     environment:
       DATABASE_URL: postgres://postgres:@postgres:5432/webapp_dev

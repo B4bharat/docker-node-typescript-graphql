@@ -1,12 +1,12 @@
 FROM node:16.13.1-alpine
 
-WORKDIR /usr/src/app/ts-graphql
+WORKDIR /usr/src/app/ts-graphql-dynamodb
 
-COPY ./package.json /usr/src/app/ts-graphql
-COPY ./yarn.lock /usr/src/app/ts-graphql
+COPY ./package.json /usr/src/app/ts-graphql-dynamodb
+COPY ./yarn.lock /usr/src/app/ts-graphql-dynamodb
 RUN yarn install
 
-COPY . /usr/src/app/ts-graphql
+COPY . /usr/src/app/ts-graphql-dynamodb
 
 RUN yarn build
 
