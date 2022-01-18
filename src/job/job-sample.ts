@@ -1,5 +1,5 @@
 import { Job } from './job-type';
-import { fetchAllRecords } from '../libs/fetchAllRecords';
+import { fetchAllRecords } from '../libs/utils';
 import { unmarshall } from '@aws-sdk/util-dynamodb';
 
 let jobCollection: Job[] = [];

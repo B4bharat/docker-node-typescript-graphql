@@ -4,6 +4,8 @@ import { Job } from './job-type';
 import { JobInput } from './job-input';
 import { createJobSamples } from './job-sample';
 
+import { addNewRecords } from '../libs/utils';
+
 @Resolver((of) => Job)
 export class JobResolver {
   private readonly jobs: Job[] = createJobSamples();
@@ -23,6 +25,7 @@ export class JobResolver {
   @Mutation((returns) => Job)
   async addJob(@Arg('jobDetail') jobInput: JobInput): Promise<Job> {
     const jobDetail = Object.assign(new Job(), {
+      id: jobInput.id,
       description: jobInput.description,
       title: jobInput.title,
       wfh: jobInput.wfh,
@@ -36,6 +39,8 @@ export class JobResolver {
       womenAccomodation: jobInput.womenAccomodation,
     });
     await this.jobs.push(jobDetail);
+
+    await addNewRecords('job', [jobDetail]);
     return jobDetail;
   }
 }

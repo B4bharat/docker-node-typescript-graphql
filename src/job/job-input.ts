@@ -4,6 +4,9 @@ import { InputType, Field } from 'type-graphql';
 @InputType()
 export class JobInput implements Partial<Job> {
   @Field()
+  id?: string;
+
+  @Field()
   title?: string;
 
   @Field()
