@@ -1,6 +1,6 @@
 import { Job } from './job-type';
 import { fetchAllRecords } from '../libs/fetchAllRecords';
-import { marshall, unmarshall } from '@aws-sdk/util-dynamodb';
+import { unmarshall } from '@aws-sdk/util-dynamodb';
 
 (async () => {
   try {
