@@ -3,6 +3,9 @@ import { ObjectType, Field } from 'type-graphql';
 @ObjectType({ description: 'Object representing job description' })
 export class Job {
   @Field()
+  id?: string;
+
+  @Field()
   title?: string;
 
   @Field()
