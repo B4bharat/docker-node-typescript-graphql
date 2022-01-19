@@ -1,4 +1,4 @@
-import { Job } from './job-type';
+import { Job } from './delivery/graphQL/job.presenter';
 import { fetchAllRecords } from '../libs/utils';
 import { unmarshall } from '@aws-sdk/util-dynamodb';
 
