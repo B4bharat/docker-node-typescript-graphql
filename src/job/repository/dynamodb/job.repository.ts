@@ -1,7 +1,9 @@
 import { BatchWriteItemCommand } from '@aws-sdk/client-dynamodb';
 import { marshall } from '@aws-sdk/util-dynamodb';
+import { container } from 'tsyringe';
 
 import { JobRepository, Job } from '../../../domain/job';
+import { AddJobUseCase } from '../../usecases/addJob.usecase';
 
 import { ddbDocClient } from '../../../infrastructure/database/dynamodb/ddbDocClient';
 
@@ -29,3 +31,8 @@ export class DatabaseJobRepository implements JobRepository {
     }
   }
 }
+
+container.register('DatabaseJobRepository', {
+  useClass: DatabaseJobRepository,
+});
+export const addJobUseCase = container.resolve(AddJobUseCase);

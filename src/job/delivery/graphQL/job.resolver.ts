@@ -4,7 +4,7 @@ import { Job } from './job.presenter';
 import { AddJobDto } from './job.dto';
 import { createJobSamples } from '../../job-sample';
 
-import { addNewRecords } from '../../../libs/utils';
+import { addJobUseCase } from '../../repository/dynamodb/job.repository';
 
 @Resolver((of) => Job)
 export class JobResolver {
@@ -38,9 +38,9 @@ export class JobResolver {
       menAccomodation: jobInput.menAccomodation,
       womenAccomodation: jobInput.womenAccomodation,
     });
-    await this.jobs.push(jobDetail);
 
-    await addNewRecords('job', [jobDetail]);
+    await addJobUseCase.execute(jobDetail);
+
     return jobDetail;
   }
 }
