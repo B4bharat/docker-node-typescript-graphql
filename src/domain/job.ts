@@ -22,9 +22,9 @@ export interface JobUseCase {
 }
 
 export interface JobRepository {
-  insert(job: Job): Promise<Job>;
-  findAll(): Promise<Job[]>;
-  findById(id: number): Promise<Job>;
-  updateContent(id: number, isDone: boolean): Promise<void>;
-  deleteById(id: number): Promise<void>;
+  insert(job: Job): Promise<void>;
+  // findAll(): Promise<Job[]>;
+  // findById(id: number): Promise<Job>;
+  // updateContent(id: number, isDone: boolean): Promise<void>;
+  // deleteById(id: number): Promise<void>;
 }
