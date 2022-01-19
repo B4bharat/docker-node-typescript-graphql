@@ -4,7 +4,7 @@ import * as path from 'path';
 import { buildSchema } from 'type-graphql';
 
 import { RecipeResolver } from './recipe/recipe-resolver';
-import { JobResolver } from './job/job-resolver';
+import { JobResolver } from './job/delivery/graphQL/job.resolver';
 import { EmployerResolver } from './employer/employer-resolver';
 
 async function bootstrap() {
