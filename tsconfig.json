@@ -4,7 +4,8 @@
     "lib": ["esnext", "esnext.asynciterable"],
     "outDir": "dist",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/*.test.ts"]
