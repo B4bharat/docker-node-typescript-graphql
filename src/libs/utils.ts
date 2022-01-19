@@ -4,7 +4,7 @@ import {
   BatchWriteItemCommand,
 } from '@aws-sdk/client-dynamodb';
 import { marshall } from '@aws-sdk/util-dynamodb';
-import { ddbDocClient } from './ddbDocClient';
+import { ddbDocClient } from '../infrastructure/database/dynamodb/ddbDocClient';
 
 export const fetchAllRecords = async (tableName: string): Promise<any> => {
   const params = {
