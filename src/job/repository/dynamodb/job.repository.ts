@@ -26,9 +26,9 @@ export class DatabaseJobRepository implements JobRepository {
     };
 
     try {
-      await Promise.reject('test');
+      await ddbDocClient.send(new BatchWriteItemCommand(params));
     } catch (err) {
-      logger.error('Error', err);
+      logger.error('DatabaseJobRepository insert Error', err);
       throw err;
     }
   }

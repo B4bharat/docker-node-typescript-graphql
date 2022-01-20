@@ -13,13 +13,13 @@ export const logger = createLogger({
   levels: logLevels,
   transports: [
     new transports.File({
-      filename: 'src/infrastructure/logger/server.log',
+      filename: 'src/infrastructure/logger/server.log', // TODO: Update the transport to newrelic
       level: 'info',
       format: format.combine(
         format.timestamp({ format: 'MMM-DD-YYYY HH:mm:ss' }),
         format.align(),
         format.printf(
-          (info) => `${info.level}: ${[info.timestamp]}: ${info.message}`
+          (info) => `[${info.level}]: ${[info.timestamp]}: ${info.message}`
         )
       ),
     }),
