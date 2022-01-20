@@ -6,6 +6,8 @@ import { buildSchema } from 'type-graphql';
 import { JobResolver } from './job/delivery/graphQL/job.resolver';
 import { EmployerResolver } from './employer/employer-resolver';
 
+import { logger } from './infrastructure/logger';
+
 async function bootstrap() {
   // build TypeGraphQL executable schema
   const schema = await buildSchema({
@@ -21,6 +23,7 @@ async function bootstrap() {
 
   // Start the server
   const { url } = await server.listen(5000);
+  logger.info(`Server is running, GraphQL Playground available at ${url}`);
   console.log(`Server is running, GraphQL Playground available at ${url}`);
 }
 

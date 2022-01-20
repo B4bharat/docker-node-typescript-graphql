@@ -7,6 +7,8 @@ import { AddJobUseCase } from '../../usecases/addJob.usecase';
 
 import { ddbDocClient } from '../../../infrastructure/database/dynamodb/ddbDocClient';
 
+import { logger } from '../../../infrastructure/logger';
+
 export class DatabaseJobRepository implements JobRepository {
   async insert(job: Job): Promise<void> {
     const records = [job];
@@ -24,9 +26,9 @@ export class DatabaseJobRepository implements JobRepository {
     };
 
     try {
-      await ddbDocClient.send(new BatchWriteItemCommand(params));
+      await Promise.reject('test');
     } catch (err) {
-      console.log('Error', err);
+      logger.error('Error', err);
       throw err;
     }
   }
