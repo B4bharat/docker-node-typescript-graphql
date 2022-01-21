@@ -20,5 +20,7 @@ services:
       - /usr/src/app/ts-graphql-dynamodb/node_modules
     command: yarn dev
     environment:
+      AWS_ACCESS_KEY_ID: AKIA5MODO24DYMRPT665
+      AWS_SECRET_ACCESS_KEY: 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
       DATABASE_URL: postgres://postgres:@postgres:5432/webapp_dev
       PORT: 5000
