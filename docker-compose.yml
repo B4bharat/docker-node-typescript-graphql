@@ -1,17 +1,18 @@
 services:
-  postgres:
-    image: postgres:11-alpine
-    restart: always
-    environment:
-      POSTGRES_DB: webapp_dev
-      POSTGRES_HOST_AUTH_METHOD: trust
+  dynamodb-local:
+    command: '-jar DynamoDBLocal.jar -dbPath ./data'
+    image: 'amazon/dynamodb-local:latest'
+    container_name: dynamodb-local
     ports:
-      - 5432:5432
+      - '4000:4000'
+    volumes:
+      - './docker/dynamodb:/home/dynamodblocal/data'
+    working_dir: /home/dynamodblocal
 
   web:
     build: .
     depends_on:
-      - postgres
+      - dynamodb-local
     ports:
       - 5000:5000
       - 9229:9229
@@ -22,5 +23,4 @@ services:
     environment:
       AWS_ACCESS_KEY_ID: AKIA5MODO24DYMRPT665
       AWS_SECRET_ACCESS_KEY: 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
-      DATABASE_URL: postgres://postgres:@postgres:5432/webapp_dev
       PORT: 5000
