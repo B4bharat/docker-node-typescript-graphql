@@ -3,24 +3,77 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-"""
-The javascript `Date` as string. Type represents date and time as the ISO Date string.
-"""
-scalar DateTime
-
-type Query {
-  recipe(title: String!): Recipe
+input AddJobDto {
+  company: String!
+  description: String!
+  id: String!
+  location: String!
+  maxAge: Float!
+  menAccomodation: Boolean!
+  minAge: Float!
+  openPositions: Float!
+  salary: Float!
+  title: String!
+  wfh: Boolean!
+  womenAccomodation: Boolean!
 }
 
-"""Object representing cooking recipe"""
-type Recipe {
-  averageRating: Float
-  creationDate: DateTime!
+"""Object representing employer description"""
+type Employer {
+  address: String!
+  city: String!
+  company: String!
+  email: String!
+  emailVerified: Boolean!
+  mobile: String!
+  mobileVerified: Boolean!
+  name: String!
+  passwordCreated: Boolean!
+  state: String!
+  zip: String!
+}
 
-  """The recipe description with preparation info"""
-  description: String
-  ratings: [Int!]!
-  ratingsCount(minRate: Int = 0): Int!
-  specification: String @deprecated(reason: "Use `description` field instead")
+input EmployerInput {
+  address: String!
+  city: String!
+  company: String!
+  email: String!
+  emailVerified: Boolean!
+  mobile: String!
+  mobileVerified: Boolean!
+  name: String!
+  passwordCreated: Boolean!
+  state: String!
+  zip: String!
+}
+
+"""Object representing job details for client"""
+type Job {
+  company: String!
+  description: String!
+  id: String!
+  location: String!
+  maxAge: Float!
+  menAccomodation: Boolean!
+  minAge: Float!
+  openPositions: Float!
+  salary: Float!
   title: String!
+  wfh: Boolean!
+  womenAccomodation: Boolean!
+}
+
+type Mutation {
+  addEmployer(employerDetail: EmployerInput!): Employer!
+  addJob(jobDetail: AddJobDto!): Job!
+}
+
+type Query {
+  """Get all the employers"""
+  allEmployers: [Employer!]!
+
+  """Get all the jobs"""
+  allJobs: [Job!]!
+  employer(name: String!): Employer
+  job(title: String!): Job
 }
