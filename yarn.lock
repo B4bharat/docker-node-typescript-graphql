@@ -789,6 +789,18 @@
   resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.1.tgz#69bc4db754d79e1a2f17a650d3466e038d94a5eb"
   integrity sha512-CtzORUwWTTOTqfVtHaKRJ0I1kNQd1bpn3sUh8I3nJDVY+5/M/Oe1DnEWzPQvqq/xPIIkzzzIP7mfCoAjFRvDhg==
 
+"@newrelic/apollo-server-plugin@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@newrelic/apollo-server-plugin/-/apollo-server-plugin-1.2.0.tgz#2648d1616c8a4ad81fb8aa81251cf95e296a8602"
+  integrity sha512-L7XExB0Ew03GiSBbAwipGEpnN2dfkPwlmgWaolpokZV8vhySAsXhyDZ9H2qQ516LaRQ110RrICgXRcaPUgPJsQ==
+
+"@newrelic/winston-enricher@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@newrelic/winston-enricher/-/winston-enricher-2.1.0.tgz#627cc93894bff0aaa1009a60f047988815162c14"
+  integrity sha512-yfRK+lj8mUfSCqKQ0tot1Iloz+wU1upTf2YhQi5sSxYmV1RF6H6tQa8GHVDImTpOObQPX0BDAJJ7wL4mfy4lUw==
+  dependencies:
+    winston "^3.0.0"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -2623,7 +2635,7 @@ winston-transport@^4.4.2:
     readable-stream "^3.4.0"
     triple-beam "^1.2.0"
 
-winston@^3.4.0:
+winston@^3.0.0, winston@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/winston/-/winston-3.4.0.tgz#7080f24b02a0684f8a37f9d5c6afb1ac23e95b84"
   integrity sha512-FqilVj+5HKwCfIHQzMxrrd5tBIH10JTS3koFGbLVWBODjiIYq7zir08rFyBT4rrTYG/eaTqDcfSIbcjSM78YSw==
