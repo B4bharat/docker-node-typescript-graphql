@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server';
 import * as path from 'path';
 import { buildSchema } from 'type-graphql';
+const newrelic_plugin = require('@newrelic/apollo-server-plugin');
 
 import { JobResolver } from './job/delivery/graphQL/job.resolver';
 import { EmployerResolver } from './employer/employer-resolver';
@@ -19,6 +20,7 @@ async function bootstrap() {
   // Create GraphQL server
   const server = new ApolloServer({
     schema,
+    plugins: [newrelic_plugin],
   });
 
   // Start the server
